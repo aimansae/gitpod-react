@@ -12,6 +12,9 @@ import ConditionalRenderingFunctional from './components/ConditionalRenderingFun
 import NestingComponents from './components/NestingComponents';
 import MethodPropsParent from './components/MethodPropsParent';
 import MethodPropsChild from './components/MethodPropsChild';
+import CopyClass from './components/CopyClass';
+
+
 function App() {
   return (
     <div className="App">
@@ -26,7 +29,8 @@ function App() {
     {/*<ConditionalRenderingFunctional connected={false}/>*/}
     {/*<ConditionalRenderingClass/>*/}
     {/*<NestingComponents/>*/}
-    <MethodPropsParent/>
+    {/*<MethodPropsParent/>*/}
+    <CopyClass greeting='A'/>
 
     </div>
   );
