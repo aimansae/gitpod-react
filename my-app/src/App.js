@@ -4,6 +4,14 @@ import FunctionalGreetingWithProps from './components/FunctionalGreetingWithProp
 import StatefulGreeting from './components/StatefulGreeting';
 import StatefulGreetingWithCallback from './components/StatefulGreetingWithCallback';
 import StetefulGreetingWithPrevState from './components/StetefulGreetingWithPrevState';
+import EventsClass from './components/EventsClass';
+import EventsFuncional from './components/EventsFuncional';
+import EventsBinding from './components/EventsBinding';
+import ConditionalRenderingClass from './components/ConditionalRenderingClass';
+import ConditionalRenderingFunctional from './components/ConditionalRenderingFunctional';
+import NestingComponents from './components/NestingComponents';
+import MethodPropsParent from './components/MethodPropsParent';
+import MethodPropsChild from './components/MethodPropsChild';
 function App() {
   return (
     <div className="App">
@@ -12,7 +20,14 @@ function App() {
     {/*<StatefulGreetingWithCallback greetings= 'Stateful component' name='Alex' />*/}
     {/*<StatefulGreetingWithCallback greetings= 'Stateful component' name='Alex' />*/}
     {/*<StetefulGreetingWithPrevState greetings= 'Stateful component' name='Alex'/>*/}
-    
+    {/*<EventsClass/>*/}
+    {/*<EventsFuncional/>*/}
+    {/*<EventsBinding/>*/}
+    {/*<ConditionalRenderingFunctional connected={false}/>*/}
+    {/*<ConditionalRenderingClass/>*/}
+    {/*<NestingComponents/>*/}
+    <MethodPropsParent/>
+
     </div>
   );
 }
