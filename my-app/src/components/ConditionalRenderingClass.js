@@ -3,26 +3,26 @@
 import React, { Component } from "react";
 
 export class ConditionalRenderingClass extends Component {
-  //rconst
   constructor(props) {
     super(props);
 
     this.state = {
-      isLoaded: true,
+      isLoaded: false,
       isLogged: true,
     };
   }
+
   render() {
     return (
       <div>
-        <h1>{this.state.isLoaded ? "Data Loaded" : "Loading.."}</h1>
+        <h1>{this.state.isLoaded ? "Loaded" : "Loading"}</h1>
         {this.state.isLogged ? (
           <div>
             <p>Welcome to the site</p>
             <ol>
-              <li>Confirm Email</li>
-              <li>Cnfirm Profile</li>
-              <li>Sbscribe</li>
+              <li>Step 1</li>
+              <li>Complete 2</li>
+              <li>Complete 3</li>
             </ol>
           </div>
         ) : (

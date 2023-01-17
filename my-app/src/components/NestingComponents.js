@@ -5,7 +5,6 @@ import Userdata from "./Userdata";
 import UserMessage from "./UserMessage";
 
 export class NestingComponents extends Component {
-  //rconst
   constructor(props) {
     super(props);
 
@@ -14,11 +13,12 @@ export class NestingComponents extends Component {
       isLogged: false,
     };
   }
+
   render() {
     return (
       <div>
-        <Userdata isLoaded={this.state.isLoaded}/>
-        <UserMessage isLogged={this.state.isLogged}/>
+         <Userdata isLoaded={this.state.isLoaded}/>
+        <UserMessage isLogged={this.state.isLogged} />
       </div>
     );
   }

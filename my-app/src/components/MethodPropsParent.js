@@ -2,9 +2,7 @@
 
 import React, { Component } from "react";
 import MethodPropsChild from './MethodPropsChild'
-
 export class MethodPropsParent extends Component {
-  //rconst
   constructor(props) {
     super(props);
 
@@ -12,30 +10,31 @@ export class MethodPropsParent extends Component {
       isLogged: false,
     };
   }
+  handleSignin = () =>{
+    this.setState ({
+      isLogged: true,
+      
+    });
+    console.log('Check Click')
 
-  handleSignIn = () => {
-    this.setState({
-    isLogged: true,
-
-  })
-    console.log(this);
   }
 
-  handleSignOut = () => {
+  handleSignout = () =>{
     this.setState({
-    isLogged: false,
+      isLogged: false,
 
-  })
-    console.log(this);
+
+    })
   }
+
   render() {
     return (
       <div>
-        <MethodPropsChild 
-        isLogged={this.state.isLogged}
-        handleSignIn= {this.handleSignIn}
-        handleSignOut={this.handleSignOut}
-        />
+         <MethodPropsChild 
+         isLogged={this.state.isLogged}
+         handleSignin = {this.handleSignin}
+         handleSignout = {this.handleSignout}/>
+
       </div>
     );
   }
