@@ -1,61 +1,65 @@
-import './App.css';
-import FunctionalGreeting from './components/FunctionalGreetings';
-import FunctionalGreetingWithProps from './components/FunctionalGreetingWithProps';
-import StatefulGreeting from './components/StatefulGreeting';
-import StatefulGreetingWithCallback from './components/StatefulGreetingWithCallback';
-import StetefulGreetingWithPrevState from './components/StetefulGreetingWithPrevState';
-import EventsClass from './components/EventsClass';
-import EventsFuncional from './components/EventsFuncional';
-import EventsBinding from './components/EventsBinding';
-import ConditionalRenderingClass from './components/ConditionalRenderingClass';
-import ConditionalRenderingFunctional from './components/ConditionalRenderingFunctional';
-import NestingComponents from './components/NestingComponents';
-import MethodPropsParent from './components/MethodPropsParent';
-import MethodPropsChild from './components/MethodPropsChild';
-import CopyClass from './components/CopyClass';
-import RenderList from './components/RenderList';
-import DidMountComponent from './components/DidMountComponent';
-import LifeCycleCDU from './components/LifeCycleCDU';
-import ControlledForm from './components/ControlledForm'
-import UncontrolledForm from './components/UncontrolledForm'
-import SearchBar1 from './components/SearchBar1'
-import ControledFormHook from './components/ControledFormHook';
-import UseStateWithArrays from './components/UseStateWithArrays'
-import ControlledFormHooks from './components/ControlledFormHooks';
-import Colorize from './components/Colorize'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+
+  const [todoList, setTodoList] = useState([]);
+  const [newTask, setNewTask] = useState('');
+
+  const handleInput = (event) => {
+    setNewTask(event.target.value)
+
+  }
+  const addTask = () => {
+    const task = {
+      id : todoList.length===0 ? 1: todoList[todoList.length-1].id +1,
+      taskName: newTask,
+    }
+    const newTodoList = [...todoList, newTask]
+    setTodoList(newTodoList)
+    // or better
+    // setTodoList([...todoList, newTask])
+  }
+
+  const deleteTask = (id) => {
+    // filter function
+   // const newTodoList = todoList.filter((task) => {
+    //task!==taskName
+    //return task!==taskName
+    // or
+     //  const newTodoList = todoList.filter((task) =>task!==taskName
+    //   if (task === taskName) {
+    //     return false
+    //   } else {
+    //     return true
+    //   }
+    //})
+    setTodoList(todoList.filter((task) => task.id!==id))
+  }
   return (
     <div className="App">
-    <FunctionalGreeting/>
-    {/*<FunctionalGreetingWithProps greeting="Nice to meet you" name='mike' age='15'/>*/}
-    {/*<StatefulGreetingWithCallback greetings= 'Stateful component' name='Alex' />*/}
-    {/*<StatefulGreetingWithCallback greetings= 'Stateful component' name='Alex' />*/}
-    {/*<StetefulGreetingWithPrevState greetings= 'Stateful component' name='Alex'/>*/}
-    {/*<EventsClass/>*/}
-    {/*<EventsFuncional/>*/}
-    {/*<EventsBinding/>*/}
-    {/*<ConditionalRenderingFunctional connected={false}/>*/}
-    {/*<ConditionalRenderingClass/>*/}
-    {/*<NestingComponents/>*/}
-    {/*<MethodPropsParent/>*/}
-    {/*<CopyClass greeting='A'/>*/}
-    {/*<RenderList/>*/}
-    {/*<LifeCycleCDU />*/}
-    {/*<ControlledForm/>*/}
-    {/*<UncontrolledForm/>*/}
-    {/*<SearchBar1 />*/}
-    {/*<ControledFormHook/>*/}
-    {/*<UseStateWithArrays />*/}
-    {/*<ControlledFormHooks />*/}
-    <Colorize />
+      <div className="addTask">
+        <input
+          onChange={handleInput} />
+
+        <button onClick={addTask}>Add task</button>
+
+      </div>
+      <div className="list">
+        {todoList.map((task,idx) => {
+          return <div><h1 key={idx}>
+            {task.taskName}
+          </h1>
+            {/*if function has parameters*/}
+            <button onClick={() => deleteTask(task.id)}>X</button>
+          </div>
+        })}
+
+      </div>
 
 
-    
     </div>
-  );
+  )
 }
-
-
 
 export default App;

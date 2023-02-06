@@ -13,7 +13,9 @@
   align-items: center;
   justify-content: center;
 }
-
+.name {
+  color:red
+}
 .colorizer .box{
   width:13cm;
   height: 13rem;
